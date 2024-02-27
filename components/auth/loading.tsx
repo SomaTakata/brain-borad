@@ -9,7 +9,7 @@ src="/logo.svg"
 alt="logo"
 width={120}
 height={120}
-className='animate-pluse duration-700'
+className='animate-bounce duration-1000'
 />
    </div>
   )
