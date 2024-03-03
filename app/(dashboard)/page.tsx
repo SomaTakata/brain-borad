@@ -1,12 +1,16 @@
+"use client";
 import React from "react";
+import EmptyOrg from "./_components/empty-org";
+import { useOrganization } from "@clerk/nextjs";
 
 const DashBoardPage = () => {
+  const { organization } = useOrganization();
   return (
     <div
       className="
-   bg-red-500 flex-1 h-[calc(100%-80px)] p-6"
+   flex-1 h-[calc(100%-80px)] p-6"
     >
-      DashBoard Root Page
+      {!organization ? <EmptyOrg /> : <p>Board List!</p>}
     </div>
   );
 };
