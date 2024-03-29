@@ -5,6 +5,8 @@ import Link from "next/link";
 import { Overlay } from "./overlay";
 import { useAuth } from "@clerk/nextjs";
 import { formatDistanceToNow } from "date-fns";
+import { Footer } from "./footer";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface BoardCardProps {
   id: string;
@@ -39,7 +41,23 @@ export const BoardCard = ({
           <Image src={imageUrl} alt={title} fill className="object-fit" />
           <Overlay />
         </div>
+        <Footer
+          isFavorite={isFavorite}
+          title={title}
+          authorLabel={authorLabel}
+          createdAtLabel={createdAtLabel}
+          onclick={() => {}}
+          disable={false}
+        />
       </div>
     </Link>
+  );
+};
+
+BoardCard.Skelton = function BoardCardSkelton() {
+  return (
+    <div className="group aspect-[100/127] rounded-lg overflow-hidden">
+      <Skeleton className="h-full w-full" />
+    </div>
   );
 };
